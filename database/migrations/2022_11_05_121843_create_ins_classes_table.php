@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('ins_classes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('code');
+            $table->string('code');
             $table->string('id_code')->nullable();
             $table->tinyInteger('status')->default(1);
             $table->timestamps();

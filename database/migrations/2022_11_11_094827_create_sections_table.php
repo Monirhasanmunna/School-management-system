@@ -15,8 +15,7 @@ return new class extends Migration
     {
         Schema::create('sections', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('ins_class_id')->constrained()->comment('class id');
-            $table->foreignId('shift_id')->constrained()->nullable();
+            $table->foreignId('class_id')->constrained('ins_classes')->onDelete('cascade');
             $table->string('name');
             $table->timestamps();
         });

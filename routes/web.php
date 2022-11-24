@@ -1,17 +1,16 @@
 <?php
 
+use App\Http\Controllers\Academic\ClassController;
 use App\Http\Controllers\Academic\SessionController;
 use App\Http\Controllers\Attendance\TeachersAttendanceController;
 use App\Http\Controllers\Teacher\TeacherController;
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Academic\CategoryController;
+use App\Http\Controllers\Academic\SectionController;
 use App\Http\Controllers\ExamManagement\ExamManagementController;
 use App\Http\Controllers\GroupController;
-use App\Http\Controllers\InsClassController;
 use App\Http\Controllers\RoutineManagement\RoutineManagementController;
-use App\Http\Controllers\SectionController;
 use App\Http\Controllers\ShiftController;
 use App\Http\Controllers\Student\StudentMigrateController;
-
 use App\Http\Controllers\UnderConstruction\ViewController;
 use App\Http\Controllers\OnlineexamController;
 use App\Http\Controllers\HomeworkController;
@@ -56,13 +55,30 @@ Route::group(['as'=>'session.','prefix'=>'/academic/session/'],function(){
 });
 
 
-Route::group(['as'=>'classes.','prefix'=>'/academic/ins'],function(){
-    Route::get('/index',[InsClassController::class,'index'])->name('index');
-    Route::post('/store',[InsClassController::class,'store'])->name('store');
-    Route::get('/edit/{id}',[InsClassController::class,'edit'])->name('edit');
-    Route::get('/{id}/show',[InsClassController::class,'show'])->name('show');
-    Route::post('/update/{id}',[InsClassController::class,'update'])->name('update');
-    Route::post('/{id}/destroy',[InsClassController::class,'destroy'])->name('destroy');
+Route::group(['as'=>'class.','prefix'=>'/academic/class'],function(){
+    Route::get('/index',[ClassController::class,'index'])->name('index');
+    Route::post('/store',[ClassController::class,'store'])->name('store');
+    Route::get('/edit/{id}',[ClassController::class,'edit'])->name('edit');
+    Route::get('/{id}/show',[ClassController::class,'show'])->name('show');
+    Route::post('/update/{id}',[ClassController::class,'update'])->name('update');
+    Route::post('/destroy/{id}',[ClassController::class,'destroy'])->name('destroy');
+});
+
+
+Route::group(['as'=>'category.','prefix'=>'/academic/category'],function(){
+    Route::get('/index',[CategoryController::class,'index'])->name('index');
+    Route::post('/store',[CategoryController::class,'store'])->name('store');
+    Route::get('/edit/{id}',[CategoryController::class,'edit'])->name('edit');
+    Route::post('/update/{id}',[CategoryController::class,'update'])->name('update');
+    Route::post('/destroy/{id}',[CategoryController::class,'destroy'])->name('destroy');
+});
+
+Route::group(['as'=>'section.','prefix'=>'/academic/section'],function(){
+    Route::get('/index',[SectionController::class,'index'])->name('index');
+    Route::post('/store',[SectionController::class,'store'])->name('store');
+    Route::get('/edit/{id}',[SectionController::class,'edit'])->name('edit');
+    Route::post('/update/{id}',[SectionController::class,'update'])->name('update');
+    Route::post('/destroy/{id}',[SectionController::class,'destroy'])->name('destroy');
 });
 
 
@@ -232,25 +248,6 @@ Route::group(['as'=>'attendance.','prefix'=>'/attendance'],function(){
 //     Route::post('/{id}/destroy',[ShiftController::class,'destroy'])->name('destroy');
 // });
 
-
-// Route::group(['as'=>'category.','prefix'=>'/academic/'],function(){
-//     Route::get('/index',[CategoryController::class,'index'])->name('index');
-//     Route::post('/store',[CategoryController::class,'store'])->name('store');
-//     Route::get('/edit/{id}',[CategoryController::class,'edit'])->name('edit');
-//     Route::get('/{id}/show',[CategoryController::class,'show'])->name('show');
-//     Route::post('/update/{id}',[CategoryController::class,'update'])->name('update');
-//     Route::post('/{id}/destroy',[CategoryController::class,'destroy'])->name('destroy');
-// });
-
-
-// Route::group(['as'=>'section.','prefix'=>'/academic/'],function(){
-//     Route::get('/index',[SectionController::class,'index'])->name('index');
-//     Route::post('/store',[SectionController::class,'store'])->name('store');
-//     Route::get('/edit/{id}',[SectionController::class,'edit'])->name('edit');
-//     Route::get('/{id}/show',[SectionController::class,'show'])->name('show');
-//     Route::post('/update/{id}',[SectionController::class,'update'])->name('update');
-//     Route::post('/{id}/destroy',[SectionController::class,'destroy'])->name('destroy');
-// });
 
 // Route::group(['as'=>'group.','prefix'=>'/academic/'],function(){
 //     Route::get('/index',[GroupController::class,'index'])->name('index');

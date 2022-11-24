@@ -2,68 +2,7 @@
 
 @section('content')
     <div class="main-panel">
-    <nav class="navbar navbar-expand-lg navbar-light bg-white z-index-3 py-1 mb-2 nested-menu shadow-sm rounded">
-            <div class="container-fluid">
-                <div class="collapse navbar-collapse" id="navigation">
-                    <ul class="navbar-nav navbar-nav-hover mx-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('session.index') }}" id="nav-hov">
-                                Sessions
-                            </a>
-                        </li>
-
-                        {{-- <li class="nav-item ">
-                            <a class="nav-link" href="{{ route('classes.index') }}" id="nav-hov">
-                                Class
-                            </a>
-                        </li> --}}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('unc_message')}}" id="nav-hov">
-                                Admit Card
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('unc_message')}}" id="nav-hov">
-                                Seat Plan
-                            </a>
-                        </li>
-
-                        
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('unc_message')}}" id="nav-hov">
-                                ID Card
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('unc_message')}}" id="nav-hov">
-                                Testimonial
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('unc_message')}}" id="nav-hov">
-                                Transfer Certificate
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('unc_message')}}" id="nav-hov">
-                                Tag for Student
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('unc_message')}}" id="nav-hov">
-                                Number Sheet
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('unc_message')}}" id="nav-hov">
-                                Exam Attnd. Sheet
-                            </a>
-                        </li>
-                    </ul>
-                </div>         
-            </div>
-        </nav>
-        
+        @include('backend.academic.nav')
         <div>
             <div class="card new-table">
                 <div class="card-body">

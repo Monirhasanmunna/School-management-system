@@ -26,7 +26,7 @@ class SessionController extends Controller
     {
         // return $this->session->index();
         $sessions = Session::where('is_active', 1)->latest()->get();
-        return view('session')->with('sessions', $sessions);
+        return view('backend.academic.session')->with('sessions', $sessions);
     }
 
     /**
