@@ -5,9 +5,9 @@ use App\Http\Controllers\Academic\SessionController;
 use App\Http\Controllers\Attendance\TeachersAttendanceController;
 use App\Http\Controllers\Teacher\TeacherController;
 use App\Http\Controllers\Academic\CategoryController;
+use App\Http\Controllers\Academic\GroupController;
 use App\Http\Controllers\Academic\SectionController;
 use App\Http\Controllers\ExamManagement\ExamManagementController;
-use App\Http\Controllers\GroupController;
 use App\Http\Controllers\RoutineManagement\RoutineManagementController;
 use App\Http\Controllers\ShiftController;
 use App\Http\Controllers\Student\StudentMigrateController;
@@ -81,6 +81,14 @@ Route::group(['as'=>'section.','prefix'=>'/academic/section'],function(){
     Route::post('/destroy/{id}',[SectionController::class,'destroy'])->name('destroy');
 });
 
+Route::group(['as'=>'group.','prefix'=>'/academic/group'],function(){
+    Route::get('/index',[GroupController::class,'index'])->name('index');
+    Route::post('/store',[GroupController::class,'store'])->name('store');
+    Route::get('/edit/{id}',[GroupController::class,'edit'])->name('edit');
+    Route::post('/update/{id}',[GroupController::class,'update'])->name('update');
+    Route::post('/destroy/{id}',[GroupController::class,'destroy'])->name('destroy');
+});
+//work here
 
 Route::group(['as'=>'teacher.','prefix'=>'/teacher/'],function(){
     Route::get('/index',[TeacherController::class,'index'])->name('index');

@@ -23,6 +23,11 @@
                         Section
                     </a>
                 </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="{{ route('group.index') }}" id="nav-hov">
+                        Group
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('unc_message')}}" id="nav-hov">
                         Admit Card

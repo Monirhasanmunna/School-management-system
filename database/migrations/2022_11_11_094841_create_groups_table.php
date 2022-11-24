@@ -15,10 +15,8 @@ return new class extends Migration
     {
         Schema::create('groups', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('ins_class_id')->constrained()->comment('class id');
-            $table->foreignId('shift_id')->constrained()->nullable();
-            $table->foreignId('section_id')->constrained()->nullable();
             $table->string('name');
+            $table->boolean('status')->default(true);
             $table->timestamps();
         });
     }
